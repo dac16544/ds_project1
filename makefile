@@ -17,11 +17,14 @@ p1.o: p1.cpp
 Order.o: Order.cpp	
 	$(CC) $(CFLAGS)	Order.cpp	
 	
-Order.o: Order.cpp	
-	$(CC) $(CFLAGS)	Order.cpp	
+Queue.o: Queue.cpp	
+	$(CC) $(CFLAGS)	Queue.cpp	
 	
-Order.o: Order.cpp	
-	$(CC) $(CFLAGS)	Order.cpp				
+Stack.o: Stack.cpp	
+	$(CC) $(CFLAGS)	Stack.cpp	
+	
+SuperMarket.o: SuperMarket.cpp	
+	$(CC) $(CFLAGS)	SuperMarket.cpp					
 
 p1.o: p1.cpp	
 	$(CC) $(CFLAGS)	p1.cpp
