@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Node::Node(Node * prev, Node * next, string category, ArrayQueue &orderQueue){
+Node::Node(Node * prev, Node * next, string category, ArrayQueue &orderQueue) : orderQueue(orderQueue) {
 	
 }	
 
