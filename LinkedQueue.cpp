@@ -1,6 +1,6 @@
 #include <string>
 #include "Order.h"
-//#include "LinkedList.h"
+#include "LinkedList.h"
 #include "Queue.h"
 #include "LinkedQueue.h"
 
@@ -15,10 +15,12 @@ void enqueue(Order & o){
 	
 }
 
+/* TODO
 Order & dequeue(void){
 	Order o = new Order();
 	return o; 	
 }
+*/
 
 int queueSize(void){
 	return 0;

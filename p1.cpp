@@ -7,7 +7,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#define MAX_IN 256
+#include "Order.h"
 
 using std::cout;
 using std::endl;
@@ -19,16 +19,6 @@ void nope_out(const string & name) {
   exit(EXIT_FAILURE);
 } // nope_out
 
-/*bool alreadyExists(int key, int a[], int aSize) {
-    for(int i = 0; i < aSize; i++){
-        if (a[i] == key){
-            return true;
-        }
-
-    }
-    return false;
-
-} */
 
 int main(const int argc, const char * argv []) {
 
@@ -37,14 +27,13 @@ int main(const int argc, const char * argv []) {
     exit(0);
   } // if
 
+
+/* OLD p0 CODE
+
   const char * filename = argv[1];
   int fd = open(filename, O_RDONLY);
 
   if (fd != -1) {
-  //  cout << "Opened " << filename << "; "
-  //   << "fd = " << fd << "; "
-   //  << "error = " << strerror(errno)
-  //   << endl;
   } else {
     nope_out("open");
   } // if
@@ -86,19 +75,16 @@ int main(const int argc, const char * argv []) {
   int cr = close(fd);
 
   if (cr != -1) {
-    /*cout << "Closed " << filename << "; "
-     << "cr = " << cr << "; "
-     << "error = " << strerror(errno)
-     << endl; */
+
   } else {
     nope_out("close");
   } // if
 
 //test reading in
-/*  for(int i = 0; i < j; i++){
-  cout << inputNums[i] << endl;
-  }
-*/
+//  for(int i = 0; i < j; i++){
+ // cout << inputNums[i] << endl;
+//  }
+
 
   cout << "Array size is " << j << endl;
 
@@ -129,7 +115,8 @@ int main(const int argc, const char * argv []) {
   if (close(outFD) == -1) {
       nope_out("close");
   }
-
+ END OLD
+*/
   return EXIT_SUCCESS;
 } // main
 

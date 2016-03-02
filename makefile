@@ -11,17 +11,11 @@ p1: p1.o Order.o
 LinkedList.o: LinkedList.cpp	
 	$(CC) $(CFLAGS)	LinkedList.cpp
 	
-p1.o: p1.cpp	
-	$(CC) $(CFLAGS)	p1.cpp	
-	
 Order.o: Order.cpp	
 	$(CC) $(CFLAGS)	Order.cpp	
 	
 LinkedQueue.o: LinkedQueue.cpp	
 	$(CC) $(CFLAGS)	LinkedQueue.cpp	
-	
-Stack.o: Stack.cpp	
-	$(CC) $(CFLAGS)	Stack.cpp	
 	
 SuperMarket.o: SuperMarket.cpp	
 	$(CC) $(CFLAGS)	SuperMarket.cpp					
