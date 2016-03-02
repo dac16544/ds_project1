@@ -60,8 +60,9 @@ public:
 	* @param orderQueue The queue this node will have
 	*/
 	void append(string category, LinkedQueue &orderQueue){
+			
 				
-			Node newNode(nullptr,nullptr,category,&orderQueue);
+			//Node newNode(nullptr,nullptr,category,&orderQueue);
 		
 		
     }
@@ -72,7 +73,9 @@ public:
 	* for enqueue and dequque operations.
 	* @param cat the category for the required queue. 
 	*/
-	LinkedQueue & getQueueByCat(string cat);
+	LinkedQueue & getQueueByCat(string cat) {
+
+	}
 
 	/**
 	* Sets the value of orderCount for the given category.
@@ -85,7 +88,17 @@ public:
 	/**
 	* Returns the number of elements in this list.
 	*/
-	const int size() const;
+	const int size() const{
+		int size = 0;
+		if (headptr != nullptr){
+			Node * currentNode = headptr;
+			while(currentNode->next != nullptr){
+				currentNode = currentNode->next;	
+				size++;
+			}	 
+		}
+		return size;
+	}
 
 	/**
 	* Returns whether or not this linked list is empty. 
