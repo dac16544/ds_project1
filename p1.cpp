@@ -6,7 +6,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <fstream>
-#inlcude "Order.h"
+#include "Order.h"
 
 using namespace std;
 
@@ -52,7 +52,7 @@ int main(const int argc, const char * argv []) {
 
 
   } // for
-  int oNum=1;
+//  int oNum=1;
   for(int i =0;i<i2;i++){
     istringstream iss(ordersArray[i]);
     string uinput;

@@ -61,7 +61,7 @@ public:
 	*/
 	void append(string category, LinkedQueue &orderQueue){
 				
-		//		Node newNode =  new Node();
+			Node newNode(nullptr,nullptr,category,&orderQueue);
 		
 		
     }
