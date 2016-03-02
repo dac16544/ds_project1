@@ -33,7 +33,7 @@ public:
 	/**
 	* Destructor
 	*/
-	~Queue(void) { }
+	~Queue(void);
 
     /**
 	* Insert a member into the queue

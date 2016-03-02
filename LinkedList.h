@@ -37,7 +37,6 @@ public:
 		this->prev = prev;
 		this->next = next;
 		this->category = category;
-		this->orderQueue = orderQueue;
 		
 	}	
 	
@@ -60,8 +59,12 @@ public:
 	* @param category The category of the queue, the node having this queue is being appended
 	* @param orderQueue The queue this node will have
 	*/
-	void append(string category, LinkedQueue &orderQueue);
-
+	void append(string category, LinkedQueue &orderQueue){
+				
+		//		Node newNode =  new Node();
+		
+		
+    }
 
 	/**
 	* Returns the queue for a given category.
@@ -90,5 +93,6 @@ public:
 	const bool empty() const {
 		return size() == 0;
 	} // empty
+	
 }; // LinkedList
 #endif /** LINKED_LIST_H */

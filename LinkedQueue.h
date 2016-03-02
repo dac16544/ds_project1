@@ -4,12 +4,25 @@
 
 #include <string>
 #include "Order.h"
+#include "LinkedList.h"
 #include "Queue.h"
+
+#define MAX_SIZE 64
 
 using namespace std;
 
 class LinkedQueue : public Queue {
+	
+ 
+
 public:
+
+int enqEnd = 0; //tail end
+int deqEnd = 0; //head end
+Order queueList[MAX_SIZE];
+bool isFull;
+int maxsize = MAX_SIZE;
+
 	
     void enqueue(Order &);
 
