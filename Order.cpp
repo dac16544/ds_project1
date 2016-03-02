@@ -1,5 +1,7 @@
 #include <string>
 #include "Order.h"
+#include <iostream>
+
 
 using namespace std;
 
@@ -33,19 +35,21 @@ Order::Order(const Order & m){
 /**
  * copy operator
  */
- /*
-  Order & operator = Order::(const Order & m){
+ 
+  Order& Order::operator = (const Order & m){
   this->orderNumber = m.orderNumber;
   this->name = m.name;
   this->item = m.item;
   this->category = m.category;
   this->shipArea = m.shipArea;
-} */
+  
+  return *this;
+}
 
 /**
  * Destructor
  */
 Order::~Order(void){
-
+	cout << "Deleted Order" << endl;
 }
 

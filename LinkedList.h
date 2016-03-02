@@ -33,7 +33,13 @@ public:
 	/**
 	* Parameterized Constructor
 	*/
-	Node(Node * prev, Node * next, string category, LinkedQueue &orderQueue);
+	Node(Node * prev, Node * next, string category, LinkedQueue &orderQueue) : orderQueue(orderQueue) {
+		this->prev = prev;
+		this->next = next;
+		this->category = category;
+		this->orderQueue = orderQueue;
+		
+	}	
 	
 }; // Node
 
