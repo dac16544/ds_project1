@@ -5,19 +5,10 @@
 #include <sstream>
 #include <fcntl.h>
 #include <unistd.h>
+#include <fstream>
+#inlcude "Order.h"
 
-#include "Order.h"
-
-using std::cout;
-using std::endl;
-using std::string;
-using std::stringstream;
-
-void nope_out(const string & name) {
-  perror(name.c_str());
-  exit(EXIT_FAILURE);
-} // nope_out
-
+using namespace std;
 
 int main(const int argc, const char * argv []) {
 
@@ -26,96 +17,58 @@ int main(const int argc, const char * argv []) {
     exit(0);
   } // if
 
+  string filename = argv[1];
 
-/* OLD p0 CODE
+  ifstream input(filename);
 
-  const char * filename = argv[1];
-  int fd = open(filename, O_RDONLY);
-
-  if (fd != -1) {
-  } else {
-    nope_out("open");
-  } // if
-
-  int n;           // number of bytes read
-  char buffer[4]; // buffer
-  int inputNums[MAX_IN]; //can't actually have a variable array so have a set array and keep track of it's actual size seperatly
-  for(int i = 0; i < MAX_IN; i++){
-      inputNums[i] = ~0; //initialize to a number we won't actually have in a input file
-      }
-  int k = 0; //counter
-  int j = 0; //spot we actually assign at
-  stringstream stream;
-  int integerIn;
-  bool alreadyExists = false;
-
-  while ((n = read(fd, buffer, 2)) > 0) { //go thru each line
-    if (n != -1) {
-        buffer[n] = '\0';
-       // cout << buffer;
-        stream << buffer;
-        stream >> integerIn;
-        alreadyExists = false;
-        for(int i = 0; i < k; i++){
-            if(integerIn == inputNums[i]){
-                alreadyExists = true;
-                break;
-            }
-        }
-        if (!alreadyExists) {
-            inputNums[j] = integerIn;
-            j++;
-        }
-        k++;
-    } // if
-  } // while
-
-  //close input file
-  int cr = close(fd);
-
-  if (cr != -1) {
-
-  } else {
-    nope_out("close");
-  } // if
-
-//test reading in
-//  for(int i = 0; i < j; i++){
- // cout << inputNums[i] << endl;
-//  }
+  string catArray[100];
+  string ordersArray[100];
+  string dispatchArray[100];
+  int flag =0;
+  int i = 0, i2 = 0, i3 =0;
+  for(string stringIn; getline(input,stringIn);) { //go thru each line
 
 
-  cout << "Array size is " << j << endl;
+    if ((stringIn != "CATEGORIES") && (flag ==0)&&(stringIn != "ORDERS")){
+      catArray[i] = stringIn;
+      i++;
+    }
+    if(stringIn == "ORDERS"){
+      flag++;
+    }
+    if ((stringIn != "ORDERS") && (flag ==1)&&(stringIn != "CATEGORIES")&&(stringIn != "DISPATCH")){
+      ordersArray[i2] = stringIn;
+      i2++;
+    }
+    if(stringIn == "DISPATCH"){
+      flag++;
+    }
+    if ((stringIn != "DISPATCH") && (flag ==2)){
+      dispatchArray[i3] = stringIn;
+      i3++;
+    }
 
-  //create output txt file
-  int outFD = open("output.txt", O_WRONLY | O_CREAT | O_EXCL);
-  if(outFD == -1) { //may error due to already existing
-      outFD = open("output.txt", O_WRONLY); //open already existing file
-      if(outFD == -1) {
-          nope_out("open");
-      }
+
+
+
+  } // for
+  int oNum=1;
+  for(int i =0;i<i2;i++){
+    istringstream iss(ordersArray[i]);
+    string uinput;
+    int ii=0;
+    string order2[5];
+    while(getline(iss, uinput, ',')){
+      order2[ii] = uinput;
+    }
+    /*
+    Order newOrder(oNum,order2[0],order2[1],order2[2],order2[3],order2[4]);
+    put order in que
+    then delete it
+    oNum++;
+
+    */
   }
 
-  string toWrite;
-  for (int i = j-1; i > -1; i--) {
-  stream.clear();
-  stream << inputNums[i];
-  stream >> toWrite;
-
-  if(write(outFD, toWrite.c_str(), toWrite.size()) == -1) {
-      perror(argv[0]);
-      exit(0);
-  }
-  if(write(outFD, "\n", 1) == -1) { //newline
-      perror(argv[0]);
-      exit(0);
-  }
-}
-  if (close(outFD) == -1) {
-      nope_out("close");
-  }
- END OLD
-*/
   return EXIT_SUCCESS;
 } // main
-
