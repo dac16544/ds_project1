@@ -5,8 +5,8 @@ LFLAGS = -Wall $(DEBUG)
 
 all: p1
 
-p1: p1.o LinkedList.o Order.o Queue.o Stack.o SuperMarket.o	
-	$(CC) $(LFLAGS) -o p1 p1.o LinkedList.o Order.o Queue.o Stack.o SuperMarket.o	
+p1: p1.o Order.o
+	$(CC) $(LFLAGS) -o p1 p1.o Order.o	
 
 LinkedList.o: LinkedList.cpp	
 	$(CC) $(CFLAGS)	LinkedList.cpp
@@ -17,8 +17,8 @@ p1.o: p1.cpp
 Order.o: Order.cpp	
 	$(CC) $(CFLAGS)	Order.cpp	
 	
-Queue.o: Queue.cpp	
-	$(CC) $(CFLAGS)	Queue.cpp	
+LinkedQueue.o: LinkedQueue.cpp	
+	$(CC) $(CFLAGS)	LinkedQueue.cpp	
 	
 Stack.o: Stack.cpp	
 	$(CC) $(CFLAGS)	Stack.cpp	

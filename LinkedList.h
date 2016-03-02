@@ -5,7 +5,7 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
-#include "Queue.h"
+#include "LinkedQueue.h"
 #include <string>
 
 using namespace std;
@@ -24,7 +24,7 @@ class Node {
 	friend class LinkedList;
 private:
     string category = "";   // The category of products in this node.
-	ArrayQueue &orderQueue; // The order queue for this category.
+	LinkedQueue &orderQueue; // The order queue for this category.
 	Node * prev = nullptr;
 	Node * next = nullptr;
 public:
@@ -33,7 +33,7 @@ public:
 	/**
 	* Parameterized Constructor
 	*/
-	Node(Node * prev, Node * next, string category, ArrayQueue &orderQueue);
+	Node(Node * prev, Node * next, string category, LinkedQueue &orderQueue);
 	
 }; // Node
 
@@ -54,7 +54,7 @@ public:
 	* @param category The category of the queue, the node having this queue is being appended
 	* @param orderQueue The queue this node will have
 	*/
-	void append(string category, ArrayQueue &orderQueue);
+	void append(string category, LinkedQueue &orderQueue);
 
 
 	/**
@@ -63,7 +63,7 @@ public:
 	* for enqueue and dequque operations.
 	* @param cat the category for the required queue. 
 	*/
-	ArrayQueue & getQueueByCat(string cat);
+	LinkedQueue & getQueueByCat(string cat);
 
 	/**
 	* Sets the value of orderCount for the given category.

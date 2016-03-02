@@ -3,16 +3,6 @@
 
 using namespace std;
 
-int Order::orderNumber = -1;
-string Order::name = "";
-string Order::item = "";
-string Order::category = "";
-string Order::shipArea = "";
-
-/**
- * Default Constructor
- */
-Order::Order() = default;
 
 
 /**
@@ -43,13 +33,14 @@ Order::Order(const Order & m){
 /**
  * copy operator
  */
-Order Order:: & operator = (const Order & m){
+ /*
+  Order & operator = Order::(const Order & m){
   this->orderNumber = m.orderNumber;
   this->name = m.name;
   this->item = m.item;
   this->category = m.category;
   this->shipArea = m.shipArea;
-}
+} */
 
 /**
  * Destructor

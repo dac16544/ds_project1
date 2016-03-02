@@ -1,19 +1,21 @@
 #include <string>
+#include "LinkedList.h"
 
 using namespace std;
 
-Node::Node(Node * prev, Node * next, string category, ArrayQueue &orderQueue) : orderQueue(orderQueue) {
+Node::Node(Node * prev, Node * next, string category, LinkedQueue &orderQueue) {
 	
 }	
 
 
-void LinkedList::append(string category, ArrayQueue &orderQueue){
+void LinkedList::append(string category, LinkedQueue &orderQueue){
 		
 }
 
 
-ArrayQueue & LinkedList::getQueueByCat(string cat){
-		
+LinkedQueue & LinkedList::getQueueByCat(string cat){
+	LinkedQueue q;
+	return &q;
 }
 
 void LinkedList::setOrderCount(string cat, int count) {
@@ -21,9 +23,5 @@ void LinkedList::setOrderCount(string cat, int count) {
 }
     
 const int LinkedList::size() const{
-		
+		return 0;
 }
-	
-const bool LinkedList::empty() const {
-	return size() == 0;
-} // empty

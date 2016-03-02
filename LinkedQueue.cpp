@@ -1,6 +1,6 @@
 #include <string>
 #include "Order.h"
-#include "LinkedList.h"
+//#include "LinkedList.h"
 #include "Queue.h"
 #include "LinkedQueue.h"
 
@@ -11,16 +11,17 @@ Queue::Queue(string category){
 	this->category = category;
 }
 
-void enqueue(Order &){
+void enqueue(Order & o){
 	
 }
 
 Order & dequeue(void){
-	
+	Order o = new Order();
+	return o; 	
 }
 
 int queueSize(void){
-	
+	return 0;
 }
 	
 

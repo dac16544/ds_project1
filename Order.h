@@ -1,6 +1,10 @@
 /**
  * Order class
  */
+ 
+#ifndef _ORDER_H
+#define _ORDER_H 
+ 
 #include <string>
 using namespace std;
 
@@ -38,3 +42,5 @@ class Order {
 	*/
 	~Order(void);
 };
+
+#endif //_ORDER_H
