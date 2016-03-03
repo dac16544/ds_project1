@@ -19,6 +19,10 @@ Queue::~Queue(void){
 	cout << "Deleted Order" << endl;
 }
 
+LinkedQueue::LinkedQueue(string category){
+	this->category = category;
+}
+
 void LinkedQueue::enqueue(Order & o){ //enqueue into ARRAY
 	
 	//1 Make new node in enq end of queueList

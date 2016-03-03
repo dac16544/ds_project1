@@ -23,6 +23,7 @@ Order queueList[MAX_SIZE];
 bool isFull;
 int maxsize = MAX_SIZE;
 
+	LinkedQueue(string category);
 	
     void enqueue(Order &);
 
