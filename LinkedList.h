@@ -54,6 +54,8 @@ private:
 public:
 	int length = 0;
 	
+	
+	
 	/**
 	* Adds an item to the end of this list.
 	*
@@ -62,9 +64,18 @@ public:
 	*/
 	void append(string category, LinkedQueue &orderQueue){
 			
+		//make node with queue and cat
+		if(headptr == tailptr == nullptr){	
+			headptr = tailptr =  new Node(prev,next,category,orderQueue);
+		}
 				
-			//Node newNode(nullptr,nullptr,category,&orderQueue);
+		//if no head or tail, assign node to head
 		
+		//if no tail but a head, assing node to tail
+		
+		//else make node new tail
+		
+		//length++
 		
     }
 
@@ -90,6 +101,7 @@ public:
 	* Returns the number of elements in this list.
 	*/
 	const int size() const{
+		/*
 		int size = 0;
 		if (headptr != nullptr){
 			Node * currentNode = headptr;
@@ -98,7 +110,8 @@ public:
 				size++;
 			}	 
 		}
-		return size;
+		return size; */
+		return length;
 	}
 
 	/**
