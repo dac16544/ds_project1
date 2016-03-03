@@ -16,7 +16,7 @@ Queue::Queue(string category){
 }
 
 Queue::~Queue(void){
-	cout << "Deleted Order" << endl;
+//	cout << "Deleted Order" << endl;
 }
 
 LinkedQueue::LinkedQueue(string category){

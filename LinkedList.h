@@ -65,17 +65,27 @@ public:
 	void append(string category, LinkedQueue &orderQueue){
 			
 		//make node with queue and cat
-		if(headptr == tailptr == nullptr){	
-			headptr = tailptr =  new Node(prev,next,category,orderQueue);
-		}
+
 				
 		//if no head or tail, assign node to head
-		
-		//if no tail but a head, assing node to tail
-		
+		if(headptr == nullptr && tailptr == nullptr){	
+			headptr = new Node(nullptr,nullptr,category,orderQueue);
+			length++;
+		}
+		//if no tail but a head, assign node to tail
+		else if(headptr != nullptr && tailptr == nullptr){	
+			tailptr = new Node(headptr,nullptr,category,orderQueue);
+			headptr->next = tailptr;
+			length++;
+		}
 		//else make node new tail
+		else {
+			Node * oldTail = tailptr;
+			tailptr = new Node(oldTail,nullptr,category,orderQueue);
+			oldTail->next = tailptr;
+			length++;
+		}
 		
-		//length++
 		
     }
 
