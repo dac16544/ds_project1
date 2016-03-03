@@ -12,6 +12,7 @@ using namespace std;
 // forward declaration of LinkedList
 
 class LinkedList;
+class LinkedQueue;
 
 /**
 * Represents a node in a doubly-linked list.
@@ -73,9 +74,9 @@ public:
 	* for enqueue and dequque operations.
 	* @param cat the category for the required queue. 
 	*/
-	LinkedQueue & getQueueByCat(string cat) {
-
-	}
+//	LinkedQueue & getQueueByCat(string cat) {
+//
+//	}
 
 	/**
 	* Sets the value of orderCount for the given category.
