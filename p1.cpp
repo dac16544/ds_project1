@@ -11,6 +11,7 @@
 #include "LinkedQueue.h"
 #include "LinkedList.h"
 #include "SuperMarket.h"
+#include "algorithm"
 
 using namespace std;
 
@@ -41,7 +42,7 @@ int main(const int argc, const char * argv []) {
     if ((stringIn != "CATEGORIES") && (flag ==0)&&(stringIn != "ORDERS")){
       catArray[i1] = stringIn;
       i1++;
-
+      
       //make a reference to it from the linked list
     }
     if(stringIn == "ORDERS"){
@@ -64,27 +65,24 @@ int main(const int argc, const char * argv []) {
 
   } // for
 
-
+  
   for(int i =0;i<i1;i++){
   LinkedQueue test(catArray[i]);
   qArrays[i] = test;
   }
+  int t = 0,tt=0,iii=2;
   for(int i =0;i<i3;i++){
     istringstream iss(dispatchArray[i]);
     string uinput;
-    int iii=0;
-
-    int t =0,tt=0;
     while(getline(iss, uinput, ' ')){
       if((iii%2)!=0){
       dispatchNum[t] = uinput;
       t++;
       }
       else{
-    dispatchCat[tt]=uinput;
-    tt++;
+	dispatchCat[tt]=uinput;
+	tt++;
       }
-
       iii++;
     }
     //store # of orders to be dispatched on linked list
@@ -99,10 +97,13 @@ int main(const int argc, const char * argv []) {
       order2[ii] = uinput;
       ii++;
     }
+    order2[2].erase(remove(order2[2].begin(), order2[2].end(), ' '), order2[2].end()); 
     Order * newOrder = new Order(oNum,order2[0],order2[1],order2[2],order2[3]);
     for(int i = 0;i<i1;i++){
-      if(order2[0]==qArrays[i].category)
-    qArrays[i].enqueue(*newOrder);
+      if(order2[2]==qArrays[i].category){
+	cout<<"inside"<<endl;
+	qArrays[i].enqueue(*newOrder);
+      }
     }
     oNum++;
 
@@ -118,20 +119,15 @@ int main(const int argc, const char * argv []) {
   int dNumsConverted[64]; //size matches dispatchNum
   stringstream converter;
   converter.clear();
-  for (int k = 0; k < i1; k++) {
-      converter << dispatchNum[k];
+  for (int k = 0; k < i3; k++) {
+    converter <<dispatchNum[k];
       converter >> dNumsConverted[k];
       converter.clear();
       converter << "";
   }
-  for (int k = 0; k < i1; k++) {
+  for (int k = 0; k < i3; k++) {
         theList.setOrderCount(dispatchCat[k], dNumsConverted[k]);
   }
-
-
-  //test queue/list
-  //cout << theList.getQueueByCat("Grocery").category <<endl;
-
 
   //for each num to dispatch in each node add the orders to stack
   dispatchOrder( theList, catArray);
