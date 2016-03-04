@@ -132,16 +132,6 @@ public:
 	* Returns the number of elements in this list.
 	*/
 	const int size() const{
-		/*
-		int size = 0;
-		if (headptr != nullptr){
-			Node * currentNode = headptr;
-			while(currentNode->next != nullptr){
-				currentNode = currentNode->next;	
-				size++;
-			}	 
-		}
-		return size; */
 		return length;
 	}
 
