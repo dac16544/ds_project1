@@ -130,11 +130,11 @@ int main(const int argc, const char * argv []) {
 
 
   //test queue/list
-  cout << theList.getQueueByCat("Grocery").category <<endl;
+  //cout << theList.getQueueByCat("Grocery").category <<endl;
 
 
   //for each num to dispatch in each node add the orders to stack
- // dispatchOrder( theList, catArray);
+  dispatchOrder( theList, catArray);
 
 
 

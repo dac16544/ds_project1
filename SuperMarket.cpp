@@ -26,9 +26,8 @@ void printLabel(LinkedStack &myStack){
   ofstream myfile;
   myfile.open("shippingLabels.txt");
 
-  Order toWrite;
   for(int i=0; i < myStack.size; i++){
-  toWrite = myStack.pop();
+  Order toWrite(myStack.pop());
   myfile <<"------------------------------ \n";
   myfile <<"Order Number: " << toWrite.orderNumber<<"\n";
   myfile <<"Name: "<<toWrite.name <<"\n";
