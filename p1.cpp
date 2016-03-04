@@ -104,6 +104,10 @@ int main(const int argc, const char * argv []) {
 
 
   }
+  
+  LinkedList theList;
+  
+  theList.append(qArrays[0].category, qArrays[0]);
 
   return EXIT_SUCCESS;
 } // main
