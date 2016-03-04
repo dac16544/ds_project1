@@ -22,6 +22,9 @@ Queue::~Queue(void){
 LinkedQueue::LinkedQueue(string category){
 	this->category = category;
 }
+LinkedQueue::LinkedQueue(){
+
+}
 
 void LinkedQueue::enqueue(Order & o){ //enqueue into ARRAY
 	
