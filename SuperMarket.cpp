@@ -3,28 +3,29 @@
 #include <iostream>
 #include <fstream>
 
-using namespace std; 
+using namespace std;
 
-void printLabel(Stack &myStack);
+void printLabel(LinkedStack &myStack);
 
 void dispatchOrder(LinkedList &myList, string cats[]){
-	
-    Stack *s = new LinkedStack();
+
+    LinkedStack *s = new LinkedStack();
     for(int i = 0; i < myList.size(); i++){
             string category = cats[i];
-            for(int j = 0; j < myList.grabNodeByCat(category)->orderCount; j++){
-                s->push(myList.getQueueByCat(category).dequeue());
+     for(int j = 0; j < myList.grabNodeByCat(category)->orderCount; j++){
+            s->push(myList.getQueueByCat(category).dequeue());
             }
     }
+
     printLabel(*s);
 
 }
 
-void printLabel(Stack &myStack){
+void printLabel(LinkedStack &myStack){
 
   ofstream myfile;
   myfile.open("shippingLabels.txt");
-  
+
   Order toWrite;
   for(int i=0; i < myStack.size; i++){
   toWrite = myStack.pop();
@@ -35,6 +36,5 @@ void printLabel(Stack &myStack){
   myfile <<"Ship To: " << toWrite.shipArea << "\n";
 }
   myfile <<"------------------------------ \n";
-  
-  myfile.close();
+myfile.close();
 }
