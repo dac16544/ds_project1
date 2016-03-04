@@ -26,25 +26,25 @@ void dispatchOrder(LinkedList &myList, string cats[]){
 }
 
 void printLabel(Stack &myStack){
-	 //Pop order off
-  /*
-  ofstream myfile;
-  myfile.open("output.txt");
-  for(int i=0;i<numbertodispatch;i++{
-  myfile <<"------------------------------ \n";
-  myfile <<"Order Number: " <<uniqueordernumber<<"\n";
-  myfile <<"Name: "<<ordernanme<<"\n";
-  myfile <<"Item: "<<itemname<<"\n";
-  myfile <<"Ship To: "<<location<<"\n";
-}
-  myfile <<"------------------------------ \n";
+    /*
+    ofstream myfile;
+    myfile.open("output.txt);
+    myfile.close();
+    */
 
-  myfile.close();
-  */
   const char * filename = "shippingLabels.txt";
   int fd = open(filename, O_WRONLY | O_TRUNC | O_CREAT); //create labels or truncate over existing ones
-  int nfd = dup2(fd, STDOUT_FILENO);  // redirect standard out
+  dup2(fd, STDOUT_FILENO);  // redirect standard out
   
-  myStack.pop();
+  Order toWrite;
+  for(int i=0; i < myStack.size; i++){
+  toWrite = myStack.pop();
+  cout <<"------------------------------ \n";
+  cout <<"Order Number: " << toWrite.orderNumber<<"\n";
+  cout <<"Name: "<<toWrite.name <<"\n";
+  cout <<"Item: "<< toWrite.item <<"\n";
+  cout <<"Ship To: " << toWrite.shipArea << "\n";
+}
+  cout <<"------------------------------ \n";
   
 }
