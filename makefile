@@ -25,8 +25,9 @@ p1.o: p1.cpp
 
 clean:
 	rm -rf p1
+	rm -rf shippingLabels.txt
 	rm -rf *.o	
   	
 run:
-	./p1 input.txt
+	./p1 test.txt
   
