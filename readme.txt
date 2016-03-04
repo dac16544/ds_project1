@@ -1,7 +1,7 @@
 # Project 1
 
 Dustin Craig 
-	- Did
+	- Did Supermarket, Queues, LinkedList, assigning dispatch numbers in main, outlined structure of main
 
 Donovan Todd
 	- Did 
