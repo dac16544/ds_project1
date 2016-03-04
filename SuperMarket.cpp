@@ -2,11 +2,6 @@
 #include "LinkedList.h"
 #include <iostream>
 #include <fstream>
-#include <cstdlib>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
 
 using namespace std; 
 
@@ -26,25 +21,20 @@ void dispatchOrder(LinkedList &myList, string cats[]){
 }
 
 void printLabel(Stack &myStack){
-    /*
-    ofstream myfile;
-    myfile.open("output.txt);
-    myfile.close();
-    */
 
-  const char * filename = "shippingLabels.txt";
-  int fd = open(filename, O_WRONLY | O_TRUNC | O_CREAT); //create labels or truncate over existing ones
-  dup2(fd, STDOUT_FILENO);  // redirect standard out
+  ofstream myfile;
+  myfile.open("shippingLabels.txt");
   
   Order toWrite;
   for(int i=0; i < myStack.size; i++){
   toWrite = myStack.pop();
-  cout <<"------------------------------ \n";
-  cout <<"Order Number: " << toWrite.orderNumber<<"\n";
-  cout <<"Name: "<<toWrite.name <<"\n";
-  cout <<"Item: "<< toWrite.item <<"\n";
-  cout <<"Ship To: " << toWrite.shipArea << "\n";
+  myfile <<"------------------------------ \n";
+  myfile <<"Order Number: " << toWrite.orderNumber<<"\n";
+  myfile <<"Name: "<<toWrite.name <<"\n";
+  myfile <<"Item: "<< toWrite.item <<"\n";
+  myfile <<"Ship To: " << toWrite.shipArea << "\n";
 }
-  cout <<"------------------------------ \n";
+  myfile <<"------------------------------ \n";
   
+  myfile.close();
 }
