@@ -95,9 +95,18 @@ public:
 	* for enqueue and dequque operations.
 	* @param cat the category for the required queue. 
 	*/
-//	LinkedQueue & getQueueByCat(string cat) {
-//
-//	}
+	LinkedQueue & getQueueByCat(string cat) {
+		Node * here = headptr;
+		while (here != nullptr)
+		{
+		if (here->category == cat)
+			{
+				return here->orderQueue;
+			}
+		here = here->next;
+		}
+		return here->next->orderQueue;
+	}
 
 	/**
 	* Sets the value of orderCount for the given category.
@@ -105,7 +114,19 @@ public:
 	* @param cat the category name
 	* @param count the numbe of orders to dispatch
 	*/
-	void setOrderCount(string cat, int count);
+	void setOrderCount(string cat, int count){
+		Node * here = headptr;
+		while (here != nullptr)
+		{
+		if (here->category == cat)
+			{
+				here->orderCount = count;
+			}
+		here = here->next;
+		}
+		
+	}
+	
 
 	/**
 	* Returns the number of elements in this list.
