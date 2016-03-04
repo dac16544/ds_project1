@@ -50,6 +50,6 @@ Order::Order(const Order & m){
  * Destructor
  */
 Order::~Order(void){
-	cout << "Deleted Order" << endl;
+
 }
 

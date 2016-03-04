@@ -1,6 +1,10 @@
 # Project 1
 
-Dustin Craig (811-622-329)
+Dustin Craig 
+	- Did
+
+Donovan Todd
+	- Did 
 
 ## Instructions
 
@@ -19,7 +23,7 @@ $ make
 To run my code (after compiling it), type:
 
 ```
-$ ./p1 (name of txt file)
+$ make run
 ```
 
 
