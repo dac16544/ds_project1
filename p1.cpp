@@ -31,6 +31,8 @@ int main(const int argc, const char * argv []) {
   string catArray[100];
   string ordersArray[100];
   string dispatchArray[100];
+  string dispatchNum[64];
+  string dispatchCat[64];
   int flag =0;
   int i1 = 0, i2 = 0, i3 =0;
   for(string stringIn; getline(input,stringIn);) { //go thru each line
@@ -71,8 +73,7 @@ int main(const int argc, const char * argv []) {
     istringstream iss(dispatchArray[i]);
     string uinput;
     int iii=0;
-    string dispatchNum[64];
-    string dispatchCat[64];
+
     int t =0,tt=0;
     while(getline(iss, uinput, ' ')){
       if((iii%2)!=0){
@@ -112,6 +113,11 @@ int main(const int argc, const char * argv []) {
   for(int i = 0; i < i1; i++) //for all categories (i1 is numCategories)
   {
   theList.append(qArrays[i].category, qArrays[i]);
+  }
+  //for each node with a dispatch num assign dispatch num
+
+  for (int k = 0; k < i1; k++) {
+        theList.grabNodeByCat(dispatchCat[k])->orderCount = stoi(dispatchNum[k]);
   }
 
   //for each num to dispatch in each node add the orders to stack
