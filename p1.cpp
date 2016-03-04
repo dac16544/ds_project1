@@ -115,5 +115,7 @@ int main(const int argc, const char * argv []) {
   theList.append(qArrays[i].category, qArrays[i]);
   }
 
+  //for each num to dispatch in each node add the orders to stack
+
   return EXIT_SUCCESS;
 } // main
