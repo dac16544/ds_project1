@@ -25,6 +25,9 @@ int main(const int argc, const char * argv []) {
 
   ifstream input(filename);
 
+  LinkedList theList;
+  LinkedQueue qArrays[64];
+
   string catArray[100];
   string ordersArray[100];
   string dispatchArray[100];
@@ -59,7 +62,7 @@ int main(const int argc, const char * argv []) {
 
   } // for
 
-  LinkedQueue qArrays[64];
+  
   for(int i =0;i<i1;i++){
   LinkedQueue test(catArray[i]);
   qArrays[i] = test;
@@ -104,8 +107,6 @@ int main(const int argc, const char * argv []) {
 
 
   }
-  
-  LinkedList theList;
   
   theList.append(qArrays[0].category, qArrays[0]);
 
