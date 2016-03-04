@@ -115,9 +115,17 @@ int main(const int argc, const char * argv []) {
   theList.append(qArrays[i].category, qArrays[i]);
   }
   //for each node with a dispatch num assign dispatch num
-
+  int dNumsConverted[64]; //size matches dispatchNum
+  stringstream converter;
+  converter.clear();
   for (int k = 0; k < i1; k++) {
-        theList.grabNodeByCat(dispatchCat[k])->orderCount = stoi(dispatchNum[k]);
+      converter << dispatchNum[k];
+      converter >> dNumsConverted[k];
+      converter.clear();
+      converter << "";
+  }
+  for (int k = 0; k < i1; k++) {
+        theList.setOrderCount(dispatchCat[k], dNumsConverted[k]);
   }
 
   //for each num to dispatch in each node add the orders to stack
