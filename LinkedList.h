@@ -107,7 +107,21 @@ public:
 		}
 		return here->next->orderQueue;
 	}
-
+	
+	Node * grabNodeByCat (string cat) {
+		Node * here = headptr;
+		while (here != nullptr)
+		{
+		if (here->category == cat)
+			{
+                return here;
+			}
+        here = here->next;
+		}
+        return here->next;
+	}
+	
+		
 	/**
 	* Sets the value of orderCount for the given category.
 	*

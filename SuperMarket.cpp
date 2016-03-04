@@ -17,7 +17,7 @@ void dispatchOrder(LinkedList &myList, string cats[]){
     Stack *s = new LinkedStack();
     for(int i = 0; i < myList.size(); i++){
             string category = cats[i];
-            for(int j = 0; j < 2; j++){ //TODO MAKE grabNodebycat ->
+            for(int j = 0; j < myList.grabNodeByCat(category)->orderCount; j++){
                 s->push(myList.getQueueByCat(category).dequeue());
             }
     }
