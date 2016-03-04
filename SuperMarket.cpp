@@ -1,11 +1,28 @@
+#include "LinkedStack.h"
 #include "LinkedList.h"
-#include "Stack.h"
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+
 using namespace std; 
+
+void printLabel(Stack &myStack);
 
 void dispatchOrder(LinkedList &myList, string cats[]){
 	
+    Stack *s = new LinkedStack();
+    for(int i = 0; i < myList.size(); i++){
+            string category = cats[i];
+            for(int j = 0; j < 2; j++){ //TODO MAKE grabNodebycat ->
+                s->push(myList.getQueueByCat(category).dequeue());
+            }
+    }
+    printLabel(*s);
+
 }
 
 void printLabel(Stack &myStack){
@@ -24,4 +41,10 @@ void printLabel(Stack &myStack){
 
   myfile.close();
   */
+  const char * filename = "shippingLabels.txt";
+  int fd = open(filename, O_WRONLY | O_TRUNC | O_CREAT); //create labels or truncate over existing ones
+  int nfd = dup2(fd, STDOUT_FILENO);  // redirect standard out
+  
+  myStack.pop();
+  
 }

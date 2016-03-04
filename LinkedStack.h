@@ -4,11 +4,10 @@
 
 #include <string>
 #include "Order.h"
-#include "Queue.h"
-
+#include "Stack.h"
 using namespace std;
 
-class LinkedStack : public Queue {
+class LinkedStack : public Stack {
 public:
 	
     void push(Order & order);

@@ -1,17 +1,17 @@
 #include <string>
 #include "Order.h"
-#include "Queue.h"
 #include "LinkedStack.h"
 	
 using namespace std;
 
-void push(Order & order){
+void LinkedStack::push(Order & order){
 
 }
 
-/* TODO
-Order & pop(void){
-	 
+
+Order & LinkedStack::pop(void){
+	 Order h;
+     return h;
 }
-*/
+
 

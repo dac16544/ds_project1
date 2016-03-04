@@ -109,13 +109,15 @@ int main(const int argc, const char * argv []) {
   }
 
   //add all queues to linked list
-  int numCategories;
-  for(int i = 0; i < numCategories; i++) //for all categories
+  for(int i = 0; i < i1; i++) //for all categories (i1 is numCategories)
   {
   theList.append(qArrays[i].category, qArrays[i]);
   }
 
   //for each num to dispatch in each node add the orders to stack
+  dispatchOrder( theList, catArray);
+
+
 
   return EXIT_SUCCESS;
 } // main
