@@ -4,7 +4,7 @@
 #include "Order.h"
 #include "LinkedList.h"
 #include "Queue.h"
-#include "LinkedQueue.h"
+#include "ArrayQueue.h"
 
 
 
@@ -19,14 +19,14 @@ Queue::~Queue(void){
 
 }
 
-LinkedQueue::LinkedQueue(string category){
+ArrayQueue::ArrayQueue(string category){
 	this->category = category;
 }
-LinkedQueue::LinkedQueue(){
+ArrayQueue::ArrayQueue(){
 
 }
 
-void LinkedQueue::enqueue(Order & o){ //enqueue into ARRAY
+void ArrayQueue::enqueue(Order & o){ //enqueue into ARRAY
 	
 	//1 Make new node in enq end of queueList
 	//2 put order in node 
@@ -41,14 +41,14 @@ void LinkedQueue::enqueue(Order & o){ //enqueue into ARRAY
 }
 
 
-Order & LinkedQueue::dequeue(void){
+Order & ArrayQueue::dequeue(void){
 	int deqSpot = deqEnd;
 	deqEnd = (deqEnd+1)%(maxsize);
 	return queueList[deqSpot];
 }
 
 
-int LinkedQueue::queueSize(void){
+int ArrayQueue::queueSize(void){
 	if (deqEnd < enqEnd) // tail right of head
 	{
 		return enqEnd - deqEnd;

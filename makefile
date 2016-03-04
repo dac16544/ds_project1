@@ -5,17 +5,17 @@ LFLAGS = -Wall $(DEBUG)
 
 all: p1
 
-p1: p1.o Order.o LinkedQueue.o LinkedStack.o SuperMarket.o		
-	$(CC) $(LFLAGS) -o p1 p1.o Order.o LinkedQueue.o LinkedStack.o SuperMarket.o	
+p1: p1.o Order.o ArrayQueue.o ArrayStack.o SuperMarket.o		
+	$(CC) $(LFLAGS) -o p1 p1.o Order.o ArrayQueue.o ArrayStack.o SuperMarket.o	
 
-LinkedStack.o: LinkedStack.cpp	
-	$(CC) $(CFLAGS)	LinkedStack.cpp
+ArrayStack.o: ArrayStack.cpp	
+	$(CC) $(CFLAGS)	ArrayStack.cpp
 	
 Order.o: Order.cpp	
 	$(CC) $(CFLAGS)	Order.cpp	
 	
-LinkedQueue.o: LinkedQueue.cpp	
-	$(CC) $(CFLAGS)	LinkedQueue.cpp	
+ArrayQueue.o: ArrayQueue.cpp	
+	$(CC) $(CFLAGS)	ArrayQueue.cpp	
 	
 SuperMarket.o: SuperMarket.cpp	
 	$(CC) $(CFLAGS)	SuperMarket.cpp					

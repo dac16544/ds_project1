@@ -1,15 +1,15 @@
-#include "LinkedStack.h"
+#include "ArrayStack.h"
 #include "LinkedList.h"
 #include <iostream>
 #include <fstream>
 
 using namespace std;
 
-void printLabel(LinkedStack &myStack);
+void printLabel(ArrayStack &myStack);
 
 void dispatchOrder(LinkedList &myList, string cats[]){
 
-    LinkedStack *s = new LinkedStack();
+    ArrayStack *s = new ArrayStack();
     for(int i = 0; i < myList.size(); i++){
             string category = cats[i];
      for(int j = 0; j < myList.grabNodeByCat(category)->orderCount; j++){
@@ -21,7 +21,7 @@ void dispatchOrder(LinkedList &myList, string cats[]){
 
 }
 
-void printLabel(LinkedStack &myStack){
+void printLabel(ArrayStack &myStack){
 
   ofstream myfile;
   myfile.open("shippingLabels.txt");

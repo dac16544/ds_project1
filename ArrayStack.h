@@ -1,5 +1,5 @@
-#ifndef _LINKEDSTACK_H
-#define _LINKEDSTACK_H
+#ifndef _ARRAY_H
+#define _ARRAY_H
 #include <string>
 #include "Order.h"
 #include "Stack.h"
@@ -7,14 +7,14 @@
 
 using namespace std;
 
-class LinkedStack : public Stack {
+class ArrayStack : public Stack {
 public:
   Order stackList[64];
   int size;
   Order toPop;
 
-   LinkedStack();
-   // ~LinkedStack();
+   ArrayStack();
+   // ~ArrayStack();
     void push(Order & order);
 
     /**

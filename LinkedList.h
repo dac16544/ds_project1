@@ -5,14 +5,14 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
-#include "LinkedQueue.h"
+#include "ArrayQueue.h"
 #include <string>
 
 using namespace std;
 // forward declaration of LinkedList
 
 class LinkedList;
-class LinkedQueue;
+class ArrayQueue;
 
 /**
 * Represents a node in a doubly-linked list.
@@ -25,7 +25,7 @@ class Node {
 	friend class LinkedList;
 private:
     string category = "";   // The category of products in this node.
-	LinkedQueue &orderQueue; // The order queue for this category.
+	ArrayQueue &orderQueue; // The order queue for this category.
 	Node * prev = nullptr;
 	Node * next = nullptr;
 public:
@@ -34,7 +34,7 @@ public:
 	/**
 	* Parameterized Constructor
 	*/
-	Node(Node * prev, Node * next, string category, LinkedQueue &orderQueue) : orderQueue(orderQueue) {
+	Node(Node * prev, Node * next, string category, ArrayQueue &orderQueue) : orderQueue(orderQueue) {
 		this->prev = prev;
 		this->next = next;
 		this->category = category;
@@ -62,7 +62,7 @@ public:
 	* @param category The category of the queue, the node having this queue is being appended
 	* @param orderQueue The queue this node will have
 	*/
-	void append(string category, LinkedQueue &orderQueue){
+	void append(string category, ArrayQueue &orderQueue){
 			
 		//make node with queue and cat
 
@@ -95,7 +95,7 @@ public:
 	* for enqueue and dequque operations.
 	* @param cat the category for the required queue. 
 	*/
-	LinkedQueue & getQueueByCat(string cat) {
+	ArrayQueue & getQueueByCat(string cat) {
 		Node * here = headptr;
 		while (here != nullptr)
 		{

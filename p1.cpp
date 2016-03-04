@@ -8,7 +8,7 @@
 #include <unistd.h>
 #include <fstream>
 #include "Order.h"
-#include "LinkedQueue.h"
+#include "ArrayQueue.h"
 #include "LinkedList.h"
 #include "SuperMarket.h"
 #include "algorithm"
@@ -27,7 +27,7 @@ int main(const int argc, const char * argv []) {
   ifstream input(filename);
 
   LinkedList theList;
-  LinkedQueue qArrays[64];
+  ArrayQueue qArrays[64];
 
   string catArray[100];
   string ordersArray[100];
@@ -67,7 +67,7 @@ int main(const int argc, const char * argv []) {
 
   
   for(int i =0;i<i1;i++){
-  LinkedQueue test(catArray[i]);
+  ArrayQueue test(catArray[i]);
   qArrays[i] = test;
   }
   int t = 0,tt=0,iii=2;
@@ -101,7 +101,6 @@ int main(const int argc, const char * argv []) {
     Order * newOrder = new Order(oNum,order2[0],order2[1],order2[2],order2[3]);
     for(int i = 0;i<i1;i++){
       if(order2[2]==qArrays[i].category){
-	cout<<"inside"<<endl;
 	qArrays[i].enqueue(*newOrder);
       }
     }

@@ -1,5 +1,5 @@
-#ifndef _LINKEDQUEUE_H
-#define _LINKEDQUEUE_H
+#ifndef _ARRAYQUEUE_H
+#define _ARRAYQUEUE_H
 
 
 #include <string>
@@ -11,7 +11,7 @@
 
 using namespace std;
 
-class LinkedQueue : public Queue {
+class ArrayQueue : public Queue {
 	
  
 
@@ -23,8 +23,8 @@ Order queueList[MAX_SIZE];
 bool isFull;
 int maxsize = MAX_SIZE;
 
-	LinkedQueue();
-	LinkedQueue(string category);
+	ArrayQueue();
+	ArrayQueue(string category);
 	
     void enqueue(Order &);
 
@@ -41,4 +41,4 @@ int maxsize = MAX_SIZE;
 
 };
 
-#endif //_LINKEDQUEUE_H
+#endif //_ArrayQueue_H
