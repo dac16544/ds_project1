@@ -9,6 +9,9 @@
 #include <fstream>
 #include "Order.h"
 #include "LinkedQueue.h"
+#include "LinkedList.h"
+#include "SuperMarket.h"
+
 using namespace std;
 
 int main(const int argc, const char * argv []) {
@@ -33,8 +36,7 @@ int main(const int argc, const char * argv []) {
     if ((stringIn != "CATEGORIES") && (flag ==0)&&(stringIn != "ORDERS")){
       catArray[i1] = stringIn;
       i1++;
-      //LinkedQueue * newQueue = new Queue(stringIn);
-
+      
       //make a reference to it from the linked list
     }
     if(stringIn == "ORDERS"){
@@ -57,13 +59,28 @@ int main(const int argc, const char * argv []) {
 
   } // for
 
+  LinkedQueue qArrays[64];
+  for(int i =0;i<i1;i++){
+  LinkedQueue test(catArray[i]);
+  qArrays[i] = test;
+  }
   for(int i =0;i<i3;i++){
     istringstream iss(dispatchArray[i]);
     string uinput;
     int iii=0;
-    string dispatch[2];
+    string dispatchNum[64];
+    string dispatchCat[64];
+    int t =0,tt=0;
     while(getline(iss, uinput, ' ')){
-      dispatch[iii] = uinput;
+      if((iii%2)!=0){
+      dispatchNum[t] = uinput;
+      t++;
+      }
+      else{
+	dispatchCat[tt]=uinput;
+	tt++;
+      }
+	
       iii++;
     }
     //store # of orders to be dispatched on linked list
@@ -76,10 +93,13 @@ int main(const int argc, const char * argv []) {
     string order2[4];
     while(getline(iss, uinput, ',')){
       order2[ii] = uinput;
-  ii++;
+      ii++;
     }
-
     Order * newOrder = new Order(oNum,order2[0],order2[1],order2[2],order2[3]);
+    for(int i = 0;i<i1;i++){
+      if(order2[0]==qArrays[i].category)
+	qArrays[i].enqueue(*newOrder);
+    }
     oNum++;
 
 
