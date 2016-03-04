@@ -107,8 +107,13 @@ int main(const int argc, const char * argv []) {
 
 
   }
-  
-  theList.append(qArrays[0].category, qArrays[0]);
+
+  //add all queues to linked list
+  int numCategories;
+  for(int i = 0; i < numCategories; i++) //for all categories
+  {
+  theList.append(qArrays[i].category, qArrays[i]);
+  }
 
   return EXIT_SUCCESS;
 } // main
