@@ -2,6 +2,7 @@
 
 Dustin Craig 
 	- Did Supermarket, Queues, LinkedList, assigning dispatch numbers in main, outlined structure of main
+	- For Write-up did questions 2 and 4, part of 5
 
 Donovan Todd
 	- Did Stack, SuperMarket, parsed text file creating objects and data structures storing data as I went.
